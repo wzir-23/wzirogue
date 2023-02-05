@@ -1,0 +1,13 @@
+2023-02-05
+----------
+* Resolved tmux problem (immediate exit). 
+    Ran "brew update" and "tmux kill-server". One of them resolved the issue.
+* Searched for (n)curses alternatives. 
+    Settled on "blessed". Experimented a little
+* Started on game
+    Crude dungeon generator. Creates "rooms" without paths between them.
+    Print generated map to screen.
+    Status bar with hard coded stats
+BUGS: 
+1) Rooms on top row sometimes has missing ceilings. Probably off-by-one error
+in either room generation or display: Missing ceiling 
