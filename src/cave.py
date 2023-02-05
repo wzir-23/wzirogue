@@ -14,13 +14,12 @@ def create_room(cave, room):
     """ plot room in cave """
     for row in range(room[1], room[1] + room[3]):
         for col in range(room[0], room[0] + room[2]):
-            if (row == room[1] or (row == room[1] + room[3] - 1)):  # floor/ceiling?
-                cave[row][col] = '#'
+            if (col == room[0] or (col == room[0] + room[2] - 1)):  # walls?
+                cave[row][col] = '|'
             else:
-                if (col == room[0] or (col == room[0] + room[2] - 1)):  # walls?
-                    cave[row][col] = '#'
-                else:
-                    cave[row][col] = '.'
+                cave[row][col] = '.'
+            if (row == room[1] or (row == room[1] + room[3] - 1)):  # floor/ceiling?
+                cave[row][col] = '-'
 
 
 def box_overlap(a, b):
