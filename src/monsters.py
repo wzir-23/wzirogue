@@ -8,7 +8,7 @@ class Creature():
     def __init__(self, name, xpos, ypos, char):
         self.name = name
         self.xpos = xpos
-        self.ypos = 'ypos
+        self.ypos = ypos
         self.char = char
         self.player = False
         creatures.append(self)
