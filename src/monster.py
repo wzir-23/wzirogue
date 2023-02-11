@@ -12,6 +12,9 @@ class Creature():
         self.char = char
         self.player = False
         creatures.append(self)
+    def get_name(self):
+        ''' get creature name '''
+        return self.name
     def get_char(self):
         ''' get character representation '''
         return self.char
@@ -21,15 +24,15 @@ class Creature():
     def set_ypos(self, ypos):
         ''' set y position '''
         self.ypos = ypos
-    def get_xpos(self, xpos):
+    def get_xpos(self):
         ''' get x position '''
         return self.xpos
-    def get_ypos(self, ypos):
+    def get_ypos(self):
         ''' get y position '''
         return self.ypos
-    def set_player(self):
+    def set_player(self, is_player):
         ''' true if hero, false if monster '''
-        self.player = True
+        self.player = is_player
     def get_player(self):
         ''' return hero/monster object '''
         return self.player

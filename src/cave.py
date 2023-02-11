@@ -18,8 +18,8 @@ class Tile():
     def set_visible(self, shown):
         ''' true/false if visible/hidden '''
         self.visible = shown
-    def get_visible(self, shown):
-        ''' return visibility attribute '''
+    def get_visible(self):
+        ''' is visible/hidden '''
         return self.visible
 
 
