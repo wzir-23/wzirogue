@@ -24,11 +24,8 @@ def main():
     mmap, cave = src.cave.dig_cave(mmap)
     for row in range (0, HEIGHT):
         for col in range (0, WIDTH):
-            print(term.move_xy(col, row - 1) + cave[row][col], end='')
-    print(term.move_xy(1,1) + '* <-- you are here', end='')
+            print(term.move_xy(col, row) + cave[row][col], end='')
     with term.cbreak(), term.hidden_cursor():
-        # term.location(0, term.height - 1)
-        # print(term.black_on_darkkhaki(term.center('tokfrans any key to continue.')))
         inp = term.inkey()
     print(term.move_down(2) + 'You pressed ' + term.bold(repr(inp)))
 
