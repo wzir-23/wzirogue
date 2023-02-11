@@ -1,3 +1,13 @@
+2023-12-11
+----------
+* Introduced object orientation
+    The hero will later start out in one room and make paths and rooms visible
+    as he/she explores. By creating a Tile class, I can add a visibility
+    attribute to each map element.
+    Started on a Creature class which will be shared by hero and monsters
+* Created memory map representation
+    This is to separate the memory representation from the displayed map.
+
 2023-02-05
 ----------
 * Resolved tmux problem (immediate exit). 
@@ -8,6 +18,6 @@
     Crude dungeon generator. Creates "rooms" without paths between them.
     Print generated map to screen.
     Status bar with hard coded stats
-BUGS: 
+KNOWN BUGS: 
 1) Rooms on top row sometimes has missing ceilings. Probably off-by-one error
 in either room generation or display: Missing ceiling 
