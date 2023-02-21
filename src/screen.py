@@ -1,15 +1,26 @@
 ''' TUI functions '''
 import sys
+from blessed import Terminal
+
 from .constants import HEIGHT, WIDTH
 
-def check_terminal(term):
+
+def init_terminal():
     ''' Initial terminal check '''
+    term = Terminal()
     if term.width < WIDTH or term.height < HEIGHT:
         height = term.height
         width = term.width
         print(f"Terminal window is too small ({width}, {height})")
         print("Minimum size is {WIDTH} rows / {HEIGHT} lines")
-        sys.exit()
+        return False
+    return term
+
+
+def mem_to_term(term, mmap):
+    for row in range (0, HEIGHT):
+        for col in range (0, WIDTH):
+            print(term.move_xy(col, row) + mmap[row][col].get(), end='')
 
 
 def display_status(term):

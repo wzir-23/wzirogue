@@ -9,12 +9,12 @@ class Tile():
     def __init__(self):
         self.tile = ' '
         self.visible = True
+    def set(self, char):
+        ''' set tile character '''
+        self.tile = char
     def get(self):
-        ''' return tile object '''
+        ''' get tile character '''
         return self.tile
-    def set(self, item):
-        ''' set  tile object '''
-        self.tile = item
     def set_visible(self, shown):
         ''' true/false if visible/hidden '''
         self.visible = shown
@@ -23,15 +23,35 @@ class Tile():
         return self.visible
 
 
+def random_location(mmap):
+    ''' return random walkable position in map '''
+    found = False
+    while not found:
+        x_pos = random.randrange(0, WIDTH)
+        y_pos = random.randrange(0, HEIGHT)
+        if is_accessible(mmap, x_pos, y_pos):
+            found = True
+    return x_pos, y_pos
+
+
+def is_accessible(mmap, x_pos, y_pos):
+    ''' see if map location is accessible '''
+    if x_pos > WIDTH or y_pos > HEIGHT:  # boundary check
+        return False
+    if '.' in mmap[y_pos][x_pos].get():
+        return True
+    return False
+
+
 def create_room(cave, room):
     """ plot walled room in cave """
     for row in range(room[1], room[1] + room[3]):
         for col in range(room[0], room[0] + room[2]):
-            if (col == room[0] or (col == room[0] + room[2] - 1)):
+            if col in (room[0], room[0] + room[2] -1):
                 cave[row][col] = '|'
             else:
                 cave[row][col] = '.'
-            if (row == room[1] or (row == room[1] + room[3] - 1)):
+            if row in (room[1], room[1] + room[3] -1):
                 cave[row][col] = '-'
 
 
