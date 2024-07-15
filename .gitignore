@@ -2,6 +2,11 @@
 tok/
 logfile.txt
 
+# Vim temp files
+*~
+*.swp
+*.swo
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
